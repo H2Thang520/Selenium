@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-driver = webdriver.Chrome(executable_path='venv/chromedriver')
+driver = webdriver.Chrome(executable_path='/chromedriver')
 driver.get('https://www.google.com/')
 
 str = input("Nhap vao tu khoa: ")
