@@ -1,17 +1,17 @@
-# Bài 4
+# Bài 5
 
 
 import csv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
-from selenium.webdriver.chrome.options import Options
+#from selenium.webdriver.chrome.options import Options
 
-chrome_options = Options()
-chrome_options.add_experimental_option("detach", True)
+# chrome_options = Options()
+# chrome_options.add_experimental_option("detach", True)
 
-# driver = webdriver.Chrome(executable_path='/chromedriver')
-driver = webdriver.Chrome(executable_path='/chromedriver', chrome_options=chrome_options)
+driver = webdriver.Chrome(executable_path='/chromedriver')
+#driver = webdriver.Chrome(executable_path='/chromedriver', chrome_options=chrome_options)
 
 # with open('Test.csv', 'w', newline='') as f:
 #     fieldName = ['user', 'password']
@@ -35,10 +35,10 @@ userType.select_by_index(0)
 driver.find_element(By.NAME, "form-username").send_keys(user)
 driver.find_element(By.NAME, "form-password").send_keys(password)
 driver.find_element(By.CLASS_NAME, 'col-xs-12').click()
+driver.implicitly_wait(5)
+cources = driver.find_elements(By.CSS_SELECTOR, '.dashboard-card .course-info-container .align-items-start a')
+cources = driver.find_elements(By.CLASS_NAME, 'multiline')
+for c in cources:
+    print(c.text)
 
-course = driver.find_element(By.CSS_SELECTOR, 'card dashboard-card . card dashboard-card')
-
-# for c in course:
-#     print(c.text)
-
- # driver.close()
+driver.quit()
